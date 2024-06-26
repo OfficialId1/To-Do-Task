@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 
+// to delete a task
 export function deleteTask(task){
     fetch(`http://localhost:3001/tasks/${task.id}`,
         {
@@ -12,6 +13,7 @@ export function deleteTask(task){
 export default function Form({name, setName, task, setEdit}) {
     const ref = useRef();
 
+    // function to add a task
     function addTask(e){
         e.preventDefault();
 
@@ -25,6 +27,7 @@ export default function Form({name, setName, task, setEdit}) {
         .then(() => setName(''));
     }
 
+    // function to edit a task
     function editTask(e){
         e.preventDefault();
 

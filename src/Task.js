@@ -9,6 +9,7 @@ export default function Task() {
   const [edit, setEdit] = useState(false);
   const [task, setTask] = useState();
 
+  //to fetch new data whenever task changes (add, delete, edit)
   useEffect(() => {
     fetch('http://localhost:3001/tasks')
     .then(res => res.json())
