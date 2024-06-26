@@ -2,19 +2,19 @@
   "tasks": [
     {
       "id": "32fa",
-      "name": "work"
+      "name": "go to market"
     },
     {
-      "name": "walk",
+      "name": "picking flowers",
       "id": "5c6e"
     },
     {
-      "name": "sleep",
+      "name": "making notes",
       "id": "f77f"
     },
     {
       "id": "f2de",
-      "name": "play"
+      "name": "ride"
     }
   ]
 }
