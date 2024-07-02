@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AddTask from './AddTask';
 import EditTask from './EditTask';
-import { deleteTask } from './Form';
+import { deleteTask } from './api';
 
 export default function Task() {
   const [display, toggleDisplay] = useState(false);
