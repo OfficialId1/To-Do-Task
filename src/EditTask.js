@@ -5,7 +5,7 @@ export default function EditTask({task, setEdit}) {
     const [name, setName] = useState(task.name);
 
   return (
-    <div className='edit-task'>
+    <div>
        <Form 
         name={name} 
         setName={setName} 

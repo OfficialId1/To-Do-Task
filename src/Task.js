@@ -7,6 +7,7 @@ export default function Task() {
   const [display, toggleDisplay] = useState(false);
   const [tasks, setTasks] = useState([]);
   const [edit, setEdit] = useState(false);
+  const [add, setAdd] = useState(false);
   const [task, setTask] = useState();
 
   //to fetch new data whenever task changes (add, delete, edit)
@@ -18,7 +19,7 @@ export default function Task() {
 
   return (
     <div className='main'>
-        <h2 className='main-heading'>To-Do Tasks</h2>
+        <h1 className='main-heading'>To-Do Tasks</h1>
 
         <div className="task-list">
             <button 
@@ -49,9 +50,13 @@ export default function Task() {
             }
         </div>
 
-        <div className='add-task'><AddTask /></div>
+        <div 
+            className='add-task'
+            onClick={() => {setTask(task); setAdd(true)}}
+        ><button className='btn add'>Add</button></div>
 
         <div>{edit && <EditTask task={task} setEdit={setEdit} />}</div>
+        <div>{add && <AddTask task={task} setAdd={setAdd} />}</div>
     </div>
   )
 }

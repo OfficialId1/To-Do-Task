@@ -1,36 +1,37 @@
 import React, { useRef } from 'react';
 import { addTask, editTask } from './api';
 
-export default function Form({name, setName, task, setEdit}) {
+export default function Form({name, setName, task, setEdit, setAdd}) {
     const ref = useRef();
 
   return (
-    <div className='form-wrapper'>
-       <h2>{task ? 'Edit Task' : 'Add Task'}</h2>
+    <div className='form-page'>
+      <div className='form-wrapper'>
+        <h2>{task ? 'Edit Task' : 'Add Task'}</h2>
 
-       <form 
+        <form 
             onSubmit={task ? 
                 e => editTask(e, ref, task).then(() => setEdit(false)) : 
-                e => addTask(e, ref).then(() => setName(''))
+                e => addTask(e, ref).then(() => setAdd(false))
             }
             className='form'
         >
+          <input 
+              type="text" 
+              value={name}
+              ref={ref}
+              onChange={e => setName(e.target.value)}
+              required
+          />
 
-        <input 
-            type="text" 
-            value={name}
-            ref={ref}
-            onChange={e => setName(e.target.value)}
-            required
-        />
-
-        <button className='btn'>Submit</button>
-        
-        {task && <button 
-            className='btn cancel' 
-            onClick={() => setEdit(false)}
-        >Cancel</button>}
-       </form>
+          <button className='btn'>Submit</button>
+ 
+          <button 
+              className='btn cancel' 
+              onClick={() => task ? setEdit(false) : setAdd(false)}
+          >Cancel</button>
+        </form>
+      </div>
     </div>
   )
 }

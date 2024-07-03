@@ -2,12 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }  
 
 .main{
     height: 100vh;
     width: 100vw;
-    background-color: lightcoral;
+    background-color:thistle;
     overflow: auto;
 }
 
@@ -21,8 +22,11 @@
 .main-heading{
     height: 50px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    color:darkcyan;
+    height: 90px;
+    background-color: aliceblue;
 }
 
 .task-list{
@@ -30,6 +34,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-top: 20px;
 }
 
 .task-list > *{
@@ -40,18 +45,22 @@
 .task-toggle{
     color: white;
     background-color: blue;
-    height: 40px;
+    height: 35px;
     width: 200px;
     font-size: 16px;
+    border-radius: 5px;
 }
 
 .task{
-    padding: 5px;
-    margin: 5px;
-    width: 300px;
+    padding: 8px 16px;
+    font-size: large;
+    margin: 10px;
+    width: 400px;
+    height: 50px;
     display: flex;
     justify-content: space-between;
-    background-color:rgb(199, 106, 106) ;
+    background-color:mistyrose ;
+    border: 6px dashed thistle;
 }
 
 .task>span{
@@ -70,8 +79,14 @@
     background-color:grey;
 }
 
+.add-task .add{
+    background-color:orangered;
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+}
 .task .del{
-    background-color:red;
+    background-color:crimson;
 }
 
 .add-task{
@@ -106,8 +121,7 @@
     padding: 5px;
 }
 
-.edit-task{
-    border: 2px solid yellow;
+.form-page{
     margin: 0;
     position: absolute;
     top: 0;
@@ -120,10 +134,12 @@
     justify-content: center;
 }
 
-.edit-task .form-wrapper{
+.form-wrapper{
     background-color:wheat;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
+    width: 450px;
+    height: 160px;
 }
 
 .cancel{
