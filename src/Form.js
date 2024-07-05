@@ -1,18 +1,25 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { addTask, editTask } from './api';
+import { Link, useNavigate } from 'react-router-dom';
 
-export default function Form({name, setName, task, setEdit, setAdd}) {
+export default function Form({ task }) {
     const ref = useRef();
+    const navigate = useNavigate();
+    const [name, setName] = useState();
+
+    useEffect(() =>{
+      setName(task?.name);
+    }, [task])
 
   return (
     <div className='form-page'>
       <div className='form-wrapper'>
-        <h2>{task ? 'Edit Task' : 'Add Task'}</h2>
+        <h2 className='heading'>{task ? 'Edit Task' : 'Add Task'}</h2>
 
         <form 
             onSubmit={task ? 
-                e => editTask(e, ref, task).then(() => setEdit(false)) : 
-                e => addTask(e, ref).then(() => setAdd(false))
+                e => editTask(e, ref, task).then(() => navigate('/')) : 
+                e => addTask(e, ref).then(() => navigate('/'))
             }
             className='form'
         >
@@ -24,12 +31,12 @@ export default function Form({name, setName, task, setEdit, setAdd}) {
               required
           />
 
-          <button className='btn'>Submit</button>
+          <button className='btn submit'>Submit</button>
  
-          <button 
-              className='btn cancel' 
-              onClick={() => task ? setEdit(false) : setAdd(false)}
-          >Cancel</button>
+          <Link 
+              className='link cancel' 
+              to='../'
+          >Cancel</Link>
         </form>
       </div>
     </div>

@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import AddTask from './AddTask';
-import EditTask from './EditTask';
 import { deleteTask } from './api';
+import { Link } from 'react-router-dom';
 
 export default function Task() {
-  const [display, toggleDisplay] = useState(false);
+  const [display, toggleDisplay] = useState(true);
   const [tasks, setTasks] = useState([]);
-  const [edit, setEdit] = useState(false);
-  const [add, setAdd] = useState(false);
-  const [task, setTask] = useState();
 
   //to fetch new data whenever task changes (add, delete, edit)
   useEffect(() => {
@@ -35,15 +31,15 @@ export default function Task() {
                            <span>{task.name}</span>
                             
                            <span>
-                                <button 
-                                    onClick={() => {setEdit(true); setTask(task);}}
-                                    className='btn edit'
-                                >Edit</button>
+                                <Link 
+                                    to={`/edit/${task.id}`}
+                                    className='link edit'
+                                >Edit</Link>
 
-                                <button 
-                                    onClick={() => {setTask(task); deleteTask(task)}}
-                                    className='btn del'
-                                >Delete</button>
+                                <Link 
+                                    onClick={() => deleteTask(task)}
+                                    className='link del'
+                                >Delete</Link>
                            </span>
                     </div>
                 )}</div>
@@ -52,11 +48,11 @@ export default function Task() {
 
         <div 
             className='add-task'
-            onClick={() => {setTask(task); setAdd(true)}}
-        ><button className='btn add'>Add</button></div>
-
-        <div>{edit && <EditTask task={task} setEdit={setEdit} />}</div>
-        <div>{add && <AddTask task={task} setAdd={setAdd} />}</div>
+        ><Link 
+            className='link add'
+            to='/add'
+         >Add</Link>
+        </div>
     </div>
   )
 }

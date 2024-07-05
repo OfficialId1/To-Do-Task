@@ -1,24 +1,20 @@
 {
   "tasks": [
     {
-      "id": "32fa",
-      "name": "go to market"
-    },
-    {
-      "name": "picking flowers",
-      "id": "5c6e"
-    },
-    {
       "name": "making notes",
       "id": "f77f"
     },
     {
-      "name": "K.O",
+      "name": "K.O.",
       "id": "cdd9"
     },
     {
-      "name": "hi there",
+      "name": "to go there",
       "id": "438a"
+    },
+    {
+      "name": "jump",
+      "id": "1206"
     }
   ]
 }

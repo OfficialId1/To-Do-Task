@@ -77,6 +77,10 @@
 
 .task .edit{
     background-color:grey;
+    width: 50px;
+    font-size: small;
+    border-radius: 10px;
+    margin-right: 5px;
 }
 
 .add-task .add{
@@ -87,6 +91,9 @@
 }
 .task .del{
     background-color:crimson;
+    width: 50px;
+    font-size: small;
+    border-radius: 10px;
 }
 
 .add-task{
@@ -119,6 +126,10 @@
 .form input{
     width: 240px;
     padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    /* background-color:rgb(236, 255, 255); */
+    background-color: #eee;
 }
 
 .form-page{
@@ -135,14 +146,31 @@
 }
 
 .form-wrapper{
-    background-color:wheat;
+    background-color:oldlace;
     border-radius: 10px;
     padding: 20px;
-    width: 450px;
+    width: 400px;
     height: 160px;
 }
 
 .cancel{
     background-color: red!important;
+    font-size: small;
+    border-radius: 5px;
+}
+.link{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+}
+.submit{
+    font-size: small;
+    border-radius: 5px;
+}
+.form-wrapper .heading{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
