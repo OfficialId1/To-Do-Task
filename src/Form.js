@@ -2,32 +2,41 @@ import React, { useEffect, useRef, useState } from 'react';
 import { addTask, editTask } from './api';
 import { Link, useNavigate } from 'react-router-dom';
 
-export default function Form({ task }) {
+export default function Form({ data }) {
     const ref = useRef();
     const navigate = useNavigate();
-    const [name, setName] = useState();
+    const [state={}, setState] = useState(data);
+    const {name = ''} = state;
 
-    useEffect(() =>{
-      setName(task?.name);
-    }, [task])
+    useEffect(() => {
+      data && setState(data);
+    },[data]);
+
+    function handleChange(e) {
+      setState({...state, [e.target.name] : e.target.value})
+    }
+
+    function handleSubmit(e) {
+      data ? 
+      editTask(e, ref, data).then(() => navigate('/')) : 
+      addTask(e, ref).then(() => navigate('/'))      
+    }
 
   return (
     <div className='form-page'>
       <div className='form-wrapper'>
-        <h2 className='heading'>{task ? 'Edit Task' : 'Add Task'}</h2>
+        <h2 className='heading'>{data ? 'Edit Task' : 'Add Task'}</h2>
 
         <form 
-            onSubmit={task ? 
-                e => editTask(e, ref, task).then(() => navigate('/')) : 
-                e => addTask(e, ref).then(() => navigate('/'))
-            }
+            onSubmit={handleSubmit}
             className='form'
         >
           <input 
               type="text" 
               value={name}
+              name='name'
               ref={ref}
-              onChange={e => setName(e.target.value)}
+              onChange={handleChange}
               required
           />
 

@@ -3,21 +3,19 @@ import Form from './Form';
 import { useParams } from 'react-router-dom';
 
 export default function EditTask() {
-  const [tasks, setTasks] = useState([]);
+  const [data, setData] = useState({});
   const {id} = useParams();
 
   useEffect(() => {
-    fetch('http://localhost:3001/tasks')
+    fetch(`http://localhost:3001/tasks/${id}`)
     .then(res => res.json())
-    .then(data => setTasks(data))
+    .then(data => setData(data))
   }, []) 
-
-  const task = tasks?.find(task => task.id === id);
 
   return (
     <div>
        <Form 
-        task={task} 
+        data={data} 
       />
     </div>
   )
